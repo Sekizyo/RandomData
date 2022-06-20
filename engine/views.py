@@ -1,5 +1,5 @@
-from engine import app
-from flask import request, jsonify
+from django.http import HttpResponse
+
 from engine.addressGen import addressGenerator
 from engine.bookGen import bookGenerator
 from engine.creditCardGen import creditCardGenerator
@@ -20,42 +20,32 @@ productGen = productGenerator()
 textGen = textGenerator()
 userGen = userGenerator()
 
-@app.route('/', methods=['GET'])
-def home():
-    return "Please use one of endpoints like:\n /addresses"
+def index(request):
+    return HttpResponse("Please use one of endpoints like:\n /addresses")
 
-@app.route('/addresses', methods=['GET'])
-def addresses():
+def addresses(request):
     return jsonify(addressGen.getAddresses())
 
-@app.route('/books', methods=['GET'])
-def books():
+def books(request):
     return jsonify(bookGen.getBooks())
 
-@app.route('/credit_cards', methods=['GET'])
-def creditCards():
+def creditCards(request):
     return jsonify(creditCardGen.getCreditCards())
 
-@app.route('/date_time/<arg>', methods=['GET'])
-def dateTime(arg):
-    return jsonify(dateTimeGen.get(arg))
+def dateTime(request):
+    return jsonify(dateTimeGen.get(request))
 
-@app.route('/persons', methods=['GET'])
-def persons():
+def persons(request):
     return jsonify(personGen.getPersons())
 
-@app.route('/places', methods=['GET'])
-def places():
+def places(request):
     return jsonify(placeGen.getPlaces())
 
-@app.route('/products', methods=['GET'])
-def products():
+def products(request):
     return jsonify(productGen.getProducts())
 
-@app.route('/texts', methods=['GET'])
-def texts():
+def texts(request):
     return jsonify(textGen.getTexts())
 
-@app.route('/users', methods=['GET'])
-def users():
+def users(request):
     return jsonify(userGen.getUsers())
