@@ -1,5 +1,5 @@
-from engine.userGen import userGenerator
+from engine.productGen import productGenerator
 
 def run():
-    gen = userGenerator()
-    print(gen.getUsers())
+    gen = productGenerator()
+    print(gen.getProduct())
