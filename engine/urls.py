@@ -12,7 +12,6 @@ import engine.views
 
 urlpatterns = [
     path("", engine.views.index, name="index"),
-    path("", engine.views.index, name="index"),
     path("addresses/", engine.views.addresses, name="addresses"),
     path("books/", engine.views.books, name="books"),
     path("creditcards/", engine.views.creditCards, name="creditCards"),
