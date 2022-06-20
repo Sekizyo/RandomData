@@ -1,4 +1,59 @@
+import random
+import requests
+
+from engine.dateTimeGen import dateTimeGenerator
+from engine.addressGen import addressGenerator
+
 class personGenerator():
+
+    def getPersons(self, count=10):
+        persons = []
+        for _ in range(count):
+            persons.append(self.getPerson())
+        return persons
+
+    def getPerson(self):
+        person = {
+            "firstname": self.firstName(),
+            "lastname": self.lastName(),
+            "gender": self.gender(),
+            "nationality": self.nationality(),
+            "age": self.age(),
+            "birhtday": self.birthday(),
+            "phone": self.phoneNr(),
+            "email": self.email(),
+            "address": self.address(),
+            "website": self.website(),
+            "image": self.image()
+        }
+        return person
+
+    def firstName(self):
+        firstNames = ["Maria", "Nushi", "Mohammed", "Jose", "Wei", "Yan", "David", "John", "Ana", "Michael"]
+        return firstNames[random.randint(0, len(firstNames)-1)]
+
+    def lastName(self):
+        lastNames = ["Wang", "Smith", "Devi", "Ivanov", "Kim", "Ali", "Garcia", "Silva", "Hansen"]
+        return lastNames[random.randint(0, len(lastNames)-1)]
+
+    def gender(self):
+        roll = random.randint(0, 2)
+        if roll == 0:
+            return "male"
+        elif roll == 1:
+            return "female"
+        elif roll == '2':
+            return "other"
+
+    def nationality(self):
+        nationalities = ["African", "Asian", "European", "Central American", "Middle Eastern", "North African", "South American", "Southeast Asian"]
+        return nationalities[random.randint(0, len(nationalities)-1)]
+
+    def age(self):
+        return str(random.randint(0, 102))
+
+    def birthday(self):
+        return dateTimeGenerator().isoDate()
 
     def phoneNr(self):
         nr = ''
@@ -8,30 +63,13 @@ class personGenerator():
         return nr
 
     def email(self):
-        pass
-
-    def gender(self):
-        pass
-
-    def nationality(self):
-        pass
-
-    def age(self):
-        pass
-
-    def fistName(self):
-        pass
-
-    def lastName(self):
-        pass
-
-    def birthday(self):
-        pass
-
-    def website(self):
-        pass
-
-    def image(self):
-        pass #http://placeimg.com/640/480/people
+        return f"{self.firstName()}.{self.lastName()}@gmail.com"
 
     def address(self):
+        return addressGenerator().getAddress()
+
+    def website(self):
+        return f"http://{self.firstName()}.{self.lastName()}.com"
+
+    def image(self):
+        return "http://placeimg.com/640/480/people"
