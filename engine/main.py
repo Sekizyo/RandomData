@@ -1,2 +1,3 @@
+from engine.generator import Generator
 def run():
-    print('test')
+    generator = Generator()
