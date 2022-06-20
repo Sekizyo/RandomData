@@ -1,3 +1,5 @@
-from engine.generator import Generator
+from engine.dateTimeGen import dateTimeGenerator
+
 def run():
-    generator = Generator()
+    gen = dateTimeGenerator()
+    print(gen.get("isoDateTime"))
