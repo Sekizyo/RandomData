@@ -2,19 +2,6 @@ import time
 import random
 
 class dateTimeGenerator():
-
-    def get(self, format_):
-        if format_ == "unixTime":
-            return self.unixTime()
-        elif format_ == "isoTime":
-            return self.isoTime()
-        elif format_ == "isoDate":
-            return self.isoDate()
-        elif format_ == "isoDateTime":
-            return self.isoDateTime()
-        else:
-            return None
-
     def unixTime(self):
         return int(time.time())-random.randint(0, int(time.time()))
 
@@ -34,7 +21,7 @@ class dateTimeGenerator():
         return f"{hour}:{minute}:{secunde}"
         
     def isoDate(self):
-        year = random.randint(1970, 2022)
+        year = random.randint(1900, 2022)
 
         month = str(random.randint(1, 12))
         if len(month) == 1:
