@@ -24,28 +24,28 @@ def index(request):
     return HttpResponse("Please use one of endpoints like:\n /addresses")
 
 def addresses(request):
-    return jsonify(addressGen.getAddresses())
+    return HttpResponse(addressGen.getAddresses())
 
 def books(request):
-    return jsonify(bookGen.getBooks())
+    return HttpResponse(bookGen.getBooks())
 
 def creditCards(request):
-    return jsonify(creditCardGen.getCreditCards())
+    return HttpResponse(creditCardGen.getCreditCards())
 
 def dateTime(request):
-    return jsonify(dateTimeGen.get(request))
+    return HttpResponse(dateTimeGen.get(request))
 
 def persons(request):
-    return jsonify(personGen.getPersons())
+    return HttpResponse(personGen.getPersons())
 
 def places(request):
-    return jsonify(placeGen.getPlaces())
+    return HttpResponse(placeGen.getPlaces())
 
 def products(request):
-    return jsonify(productGen.getProducts())
+    return HttpResponse(productGen.getProducts())
 
 def texts(request):
-    return jsonify(textGen.getTexts())
+    return HttpResponse(textGen.getTexts())
 
 def users(request):
-    return jsonify(userGen.getUsers())
+    return HttpResponse(userGen.getUsers())
