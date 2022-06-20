@@ -1,5 +1,5 @@
-from engine.addressGen import addressGenerator
+from engine.creditCardGen import creditCardGenerator
 
 def run():
-    gen = addressGenerator()
-    print(gen.getAddress())
+    gen = creditCardGenerator()
+    print(gen.getCreditCards())
