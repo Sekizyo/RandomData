@@ -5,6 +5,9 @@ from engine.dateTimeGen import dateTimeGenerator
 from engine.addressGen import addressGenerator
 
 class personGenerator():
+    def __init__(self):
+        self.dateTimeGen = dateTimeGenerator()
+        self.addressGen = addressGenerator()
 
     def getPersons(self, count=10):
         persons = []
@@ -53,7 +56,7 @@ class personGenerator():
         return str(random.randint(0, 102))
 
     def birthday(self):
-        return dateTimeGenerator().isoDate()
+        return self.dateTimeGen.isoDate()
 
     def phoneNr(self):
         nr = ''
@@ -66,7 +69,7 @@ class personGenerator():
         return f"{self.firstName()}.{self.lastName()}@gmail.com"
 
     def address(self):
-        return addressGenerator().getAddress()
+        return self.addressGen.getAddress()
 
     def website(self):
         return f"http://{self.firstName()}.{self.lastName()}.com"

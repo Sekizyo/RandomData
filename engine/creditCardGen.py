@@ -3,6 +3,8 @@ import random
 from engine.personGen import personGenerator
 
 class creditCardGenerator():
+    def __init__(self):
+        self.personGen = personGenerator()
 
     def getCreditCards(self, count=10):
         cards = []
@@ -36,5 +38,4 @@ class creditCardGenerator():
         return f"{month}/{year}"
         
     def owner(self):
-        gen = personGenerator()
-        return f"{gen.firstName()} {gen.lastName()}"
+        return f"{self.personGen.firstName()} {self.personGen.lastName()}"
