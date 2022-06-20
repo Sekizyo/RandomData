@@ -1,5 +1,5 @@
-from engine.dateTimeGen import dateTimeGenerator
+from engine.addressGen import addressGenerator
 
 def run():
-    gen = dateTimeGenerator()
-    print(gen.get("isoDateTime"))
+    gen = addressGenerator()
+    print(gen.getAddress())
