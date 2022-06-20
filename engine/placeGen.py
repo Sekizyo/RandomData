@@ -1,7 +1,6 @@
 class placeGenerator():
-        
     def latitude(self):
-        pass
+        return str(round(random.uniform(-90, 90), 7))
         
     def longitude(self):
-        pass
+        return str(round(random.uniform(-90, 90), 7))
