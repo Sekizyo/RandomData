@@ -1,5 +1,13 @@
 class bookGenerator():
-        
+    def getBooks(self, count=10):
+        books = []
+        for _ in range(count):
+            books.append(self.getBook())
+        return books
+
+    def getBook(self):
+        pass
+
     def title(self):
         pass
         

@@ -1,3 +1,1 @@
-from engine.main import run
-
-run()
+import engine

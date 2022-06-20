@@ -2,6 +2,18 @@ import time
 import random
 
 class dateTimeGenerator():
+    def get(self, parr):
+        if parr == "unixtime":
+            return self.unixTime()
+        elif parr == "isotime":
+            return self.isoTime()
+        elif parr == "isodate":
+            return self.isoDate()
+        elif parr == "isodatetime":
+            return self.isoDateTime()
+        else:
+            return None
+
     def unixTime(self):
         return int(time.time())-random.randint(0, int(time.time()))
 

@@ -1,5 +1,4 @@
 import random
-import requests
 
 from engine.dateTimeGen import dateTimeGenerator
 from engine.addressGen import addressGenerator
