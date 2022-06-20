@@ -32,8 +32,8 @@ def books(request):
 def creditCards(request):
     return HttpResponse(creditCardGen.getCreditCards())
 
-def dateTime(request):
-    return HttpResponse(dateTimeGen.get(request))
+def dateTime(request, arg):
+    return HttpResponse(dateTimeGen.get(arg))
 
 def persons(request):
     return HttpResponse(personGen.getPersons())

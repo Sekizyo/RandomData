@@ -11,14 +11,14 @@ import engine.views
 # Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
 
 urlpatterns = [
-    path("", engine.views.index, name='index')
-    path("/addresses", engine.views.addresses, name='addresses')
-    path("/books", engine.views.books, name='books')
-    path("/creditcards", engine.views.creditCards, name='creditCards')
-    path("/dateTime", engine.views.dateTime, name='dateTime')
-    path("/persons", engine.views.persons, name='persons')
-    path("/places", engine.views.places, name='places')
-    path("/products", engine.views.products, name='products')
-    path("/texts", engine.views.texts, name='texts')
-    path("/users", engine.views.users, name='users')
+    path("", engine.views.index, name="index")
+    path("addresses/", engine.views.addresses, name="addresses")
+    path("books/", engine.views.books, name="books")
+    path("creditcards/", engine.views.creditCards, name="creditCards")
+    path("dateTime/<str:arg>", engine.views.dateTime, name="dateTime")
+    path("persons/", engine.views.persons, name="persons")
+    path("places/", engine.views.places, name="places")
+    path("products/", engine.views.products, name="products")
+    path("texts/", engine.views.texts, name="texts")
+    path("users/", engine.views.users, name="users")
 ]
