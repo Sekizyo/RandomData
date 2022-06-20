@@ -11,7 +11,7 @@ import engine.views
 # Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
 
 urlpatterns = [
-    path("", engine.views.index name='index')
+    path("", engine.views.index, name='index')
     path("/addresses", engine.views.addresses, name='addresses')
     path("/books", engine.views.books, name='books')
     path("/creditcards", engine.views.creditCards, name='creditCards')
