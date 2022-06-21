@@ -1,5 +1,5 @@
 from django.http import HttpResponse, JsonResponse
-
+from engine.serialize import Serialize
 from engine.addressGen import addressGenerator
 from engine.bookGen import bookGenerator
 from engine.creditCardGen import creditCardGenerator
@@ -9,6 +9,8 @@ from engine.placeGen import placeGenerator
 from engine.productGen import productGenerator
 from engine.textGen import textGenerator
 from engine.userGen import userGenerator
+
+serialize = Serialize()
 
 addressGen = addressGenerator()
 bookGen = bookGenerator()
@@ -24,28 +26,28 @@ def index(request):
     return HttpResponse("Please use one of endpoints like:\n /addresses")
 
 def addresses(request):
-    return JsonResponse(addressGen.getAddresses())
+    return JsonResponse(serialize(addressGen.getAddresses()))
 
 def books(request):
-    return JsonResponse(bookGen.getBooks())
+    return JsonResponse(serialize(bookGen.getBooks()))
 
 def creditCards(request):
-    return JsonResponse(creditCardGen.getCreditCards())
+    return JsonResponse(serialize(creditCardGen.getCreditCards()))
 
 def dateTime(request, arg):
-    return JsonResponse(dateTimeGen.get(arg))
+    return JsonResponse(serialize(dateTimeGen.get(arg)))
 
 def persons(request):
-    return JsonResponse(personGen.getPersons())
+    return JsonResponse(serialize(personGen.getPersons()))
 
 def places(request):
-    return JsonResponse(placeGen.getPlaces())
+    return JsonResponse(serialize(placeGen.getPlaces()))
 
 def products(request):
-    return JsonResponse(productGen.getProducts())
+    return JsonResponse(serialize(productGen.getProducts()))
 
 def texts(request):
-    return JsonResponse(textGen.getTexts())
+    return JsonResponse(serialize(textGen.getTexts()))
 
 def users(request):
-    return JsonResponse(userGen.getUsers())
+    return JsonResponse(serialize(userGen.getUsers()))
