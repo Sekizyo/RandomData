@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 from engine.addressGen import addressGenerator
 from engine.bookGen import bookGenerator
@@ -24,28 +24,28 @@ def index(request):
     return HttpResponse("Please use one of endpoints like:\n /addresses")
 
 def addresses(request):
-    return HttpResponse(addressGen.getAddresses())
+    return JsonResponse(addressGen.getAddresses())
 
 def books(request):
-    return HttpResponse(bookGen.getBooks())
+    return JsonResponse(bookGen.getBooks())
 
 def creditCards(request):
-    return HttpResponse(creditCardGen.getCreditCards())
+    return JsonResponse(creditCardGen.getCreditCards())
 
 def dateTime(request, arg):
-    return HttpResponse(dateTimeGen.get(arg))
+    return JsonResponse(dateTimeGen.get(arg))
 
 def persons(request):
-    return HttpResponse(personGen.getPersons())
+    return JsonResponse(personGen.getPersons())
 
 def places(request):
-    return HttpResponse(placeGen.getPlaces())
+    return JsonResponse(placeGen.getPlaces())
 
 def products(request):
-    return HttpResponse(productGen.getProducts())
+    return JsonResponse(productGen.getProducts())
 
 def texts(request):
-    return HttpResponse(textGen.getTexts())
+    return JsonResponse(textGen.getTexts())
 
 def users(request):
-    return HttpResponse(userGen.getUsers())
+    return JsonResponse(userGen.getUsers())
