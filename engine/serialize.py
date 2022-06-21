@@ -1,6 +1,7 @@
 import json
+from django.http import JsonResponse
 class Serialize():
-    def serialize(self, data):
+    def response(self, data):
         output = {
             "status": "OK",
             "code": 200,
