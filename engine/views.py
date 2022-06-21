@@ -10,7 +10,7 @@ from engine.productGen import productGenerator
 from engine.textGen import textGenerator
 from engine.userGen import userGenerator
 
-serialize = Serialize()
+s = Serialize()
 
 addressGen = addressGenerator()
 bookGen = bookGenerator()
@@ -26,28 +26,28 @@ def index(request):
     return HttpResponse("Please use one of endpoints like:\n /addresses")
 
 def addresses(request):
-    return JsonResponse(serialize(addressGen.getAddresses()))
+    return JsonResponse(s.serialize(addressGen.getAddresses()))
 
 def books(request):
-    return JsonResponse(serialize(bookGen.getBooks()))
+    return JsonResponse(s.serialize(bookGen.getBooks()))
 
 def creditCards(request):
-    return JsonResponse(serialize(creditCardGen.getCreditCards()))
+    return JsonResponse(s.serialize(creditCardGen.getCreditCards()))
 
 def dateTime(request, arg):
-    return JsonResponse(serialize(dateTimeGen.get(arg)))
+    return JsonResponse(s.serialize(dateTimeGen.get(arg)))
 
 def persons(request):
-    return JsonResponse(serialize(personGen.getPersons()))
+    return JsonResponse(s.serialize(personGen.getPersons()))
 
 def places(request):
-    return JsonResponse(serialize(placeGen.getPlaces()))
+    return JsonResponse(s.serialize(placeGen.getPlaces()))
 
 def products(request):
-    return JsonResponse(serialize(productGen.getProducts()))
+    return JsonResponse(s.serialize(productGen.getProducts()))
 
 def texts(request):
-    return JsonResponse(serialize(textGen.getTexts()))
+    return JsonResponse(s.serialize(textGen.getTexts()))
 
 def users(request):
-    return JsonResponse(serialize(userGen.getUsers()))
+    return JsonResponse(s.serialize(userGen.getUsers()))
