@@ -1,3 +1,6 @@
+import json
+import random
+
 class bookGenerator():
     def getBooks(self, count=10):
         books = []

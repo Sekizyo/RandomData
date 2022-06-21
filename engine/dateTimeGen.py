@@ -15,7 +15,10 @@ class dateTimeGenerator():
             return None
 
     def unixTime(self):
-        return int(time.time())-random.randint(0, int(time.time()))
+        time = {
+            "time": int(time.time())-random.randint(0, int(time.time()))
+        }
+        return json.dumps(time)
 
     def isoTime(self):
         hour = str(random.randint(0, 23))
@@ -26,11 +29,18 @@ class dateTimeGenerator():
         if len(minute) == 1:
             minute = '0' + minute
 
-        secunde = str(random.randint(0, 60))
-        if len(secunde) == 1:
-            secunde = '0' + secunde
+        second = str(random.randint(0, 60))
+        if len(second) == 1:
+            second = '0' + second
 
-        return f"{hour}:{minute}:{secunde}"
+        time = {
+            "total": f"{hour}:{minute}:{second}",
+            "hour": hour,
+            "minute": minute,
+            "second": second
+        }
+
+        return json.dumps(time)
         
     def isoDate(self):
         year = random.randint(1900, 2022)
@@ -43,7 +53,21 @@ class dateTimeGenerator():
         if len(day) == 1:
             day = '0' + day
 
-        return f"{year}-{month}-{day}"
+        date = {
+            "total": f"{year}-{month}-{day}",
+            "year": year,
+            "month": month,
+            "day": day
+        }
+        return json.dumps(date)
 
     def isoDateTime(self):
-        return f"{self.isoDate()} {self.isoTime()}"
+        date = {
+            "total": f"{self.isoDate()} {self.isoTime()}",
+            "total": self.isoDate(),
+            "total": self.isoTime()
+        }
+
+        return json.dumps(date)
+
+        

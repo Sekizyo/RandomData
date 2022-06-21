@@ -1,3 +1,4 @@
+import json
 import random
 
 from engine.dateTimeGen import dateTimeGenerator
@@ -28,6 +29,8 @@ class personGenerator():
             "website": self.website(),
             "image": self.image()
         }
+
+        person = json.dumps(person)
         return person
 
     def firstName(self):

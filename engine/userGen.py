@@ -1,3 +1,4 @@
+import json
 import random
 
 from engine.personGen import personGenerator
@@ -26,7 +27,7 @@ class userGenerator():
             "website": self.website(),
             "image": self.image(),
         }
-        
+        user = json.dumps(user)
         return user
 
     def uuid(self):

@@ -1,4 +1,6 @@
+import json
 import random
+
 class addressGenerator():
     def getAddresses(self, count=10):
         addresses = []
@@ -18,7 +20,7 @@ class addressGenerator():
             "longitude": self.longitude(),
 
         }
-
+        address = json.dumps(address)
         return address
 
     def streetName(self):

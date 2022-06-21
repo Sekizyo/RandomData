@@ -1,3 +1,4 @@
+import json
 import random
 
 class productGenerator():
@@ -21,7 +22,7 @@ class productGenerator():
             "taxes": self.taxes(),
             "category": self.category(),
         }
-
+        product = json.dumps(product)
         return product
         
     def name(self):
