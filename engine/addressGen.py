@@ -20,7 +20,7 @@ class addressGenerator():
             "longitude": self.longitude(),
 
         }
-        address = json.dumps(address)
+        # address = json.dumps(address)
         return address
 
     def streetName(self):
