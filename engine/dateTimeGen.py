@@ -16,7 +16,7 @@ class dateTimeGenerator():
 
     def unixTime(self):
         unixtime = {
-            "time": int(time.time())-random.randint(0, int(time.time()))
+            "time": str(int(time.time())-random.randint(0, int(time.time())))
         }
         
         return unixtime
@@ -44,7 +44,7 @@ class dateTimeGenerator():
         return time
         
     def isoDate(self):
-        year = random.randint(1900, 2022)
+        year = str(random.randint(1900, 2022))
 
         month = str(random.randint(1, 12))
         if len(month) == 1:
