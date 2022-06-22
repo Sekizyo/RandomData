@@ -9,4 +9,4 @@ class Serialize():
             "data": data
         }
 
-        return json.dumps(output)
+        return JsonResponse(json.dumps(output))

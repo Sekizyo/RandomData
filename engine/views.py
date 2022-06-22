@@ -22,32 +22,35 @@ productGen = productGenerator()
 textGen = textGenerator()
 userGen = userGenerator()
 
+def getResponse(response):
+    return s.response(response)
+
 def index(request):
     return HttpResponse("Please use one of endpoints like:\n /addresses")
 
 def addresses(request):
-    return s.response(addressGen.getAddresses())
+    return getResponse(addressGen.getAddresses())
 
 def books(request):
-    return s.response(bookGen.getBooks())
+    return getResponse(bookGen.getBooks())
 
 def creditCards(request):
-    return s.response(creditCardGen.getCreditCards())
+    return getResponse(creditCardGen.getCreditCards())
 
 def dateTime(request, arg):
-    return s.response(dateTimeGen.get(arg))
+    return getResponse(dateTimeGen.get(arg))
 
 def persons(request):
-    return s.response(personGen.getPersons())
+    return getResponse(personGen.getPersons())
 
 def places(request):
-    return s.response(placeGen.getPlaces())
+    return getResponse(placeGen.getPlaces())
 
 def products(request):
-    return s.response(productGen.getProducts())
+    return getResponse(productGen.getProducts())
 
 def texts(request):
-    return s.response(textGen.getTexts())
+    return getResponse(textGen.getTexts())
 
 def users(request):
-    return s.response(userGen.getUsers())
+    return getResponse(userGen.getUsers())
