@@ -1,5 +1,5 @@
-from engine.dateTimeGen import dateTimeGenerator
+from engine.textGen import textGenerator
 
-datetime = dateTimeGenerator()
+datetime = textGenerator()
 
-print(datetime.get('isodatetime'))
+print(datetime.getTexts())
