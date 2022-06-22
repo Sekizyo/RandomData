@@ -1,4 +1,3 @@
-import json
 import random
 
 class addressGenerator():
@@ -20,7 +19,7 @@ class addressGenerator():
             "longitude": self.longitude(),
 
         }
-        # address = json.dumps(address)
+        
         return address
 
     def streetName(self):

@@ -1,4 +1,3 @@
-import json
 import random
 
 from engine.personGen import personGenerator
@@ -20,7 +19,7 @@ class creditCardGenerator():
             "expiration": self.expiration(),
             "owner": self.owner()
         }
-        card = json.dumps(card)
+        
         return card
         
     def company(self):

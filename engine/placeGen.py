@@ -1,4 +1,3 @@
-import json
 import random 
 
 class placeGenerator():
@@ -14,7 +13,6 @@ class placeGenerator():
             "latitude": self.latitude(),
             "longitude": self.longitude()
         }
-        place = json.dumps(place)
         return place
 
     def latitude(self):

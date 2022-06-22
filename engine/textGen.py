@@ -1,4 +1,3 @@
-import json
 import random
 
 class textGenerator():
@@ -17,7 +16,7 @@ class textGenerator():
             "genre": self.genre(),
             "content": self.content()
         }
-        text = json.dumps(text)
+        
         return text
         
     def title(self):

@@ -18,7 +18,8 @@ class dateTimeGenerator():
         time = {
             "time": int(time.time())-random.randint(0, int(time.time()))
         }
-        return json.dumps(time)
+        
+        return time
 
     def isoTime(self):
         hour = str(random.randint(0, 23))
@@ -40,7 +41,7 @@ class dateTimeGenerator():
             "second": second
         }
 
-        return json.dumps(time)
+        return time
         
     def isoDate(self):
         year = random.randint(1900, 2022)
@@ -59,7 +60,7 @@ class dateTimeGenerator():
             "month": month,
             "day": day
         }
-        return json.dumps(date)
+        return date
 
     def isoDateTime(self):
         date = {
@@ -68,6 +69,6 @@ class dateTimeGenerator():
             "total": self.isoTime()
         }
 
-        return json.dumps(date)
+        return date
 
         
