@@ -15,11 +15,11 @@ class dateTimeGenerator():
             return None
 
     def unixTime(self):
-        time = {
+        unixtime = {
             "time": int(time.time())-random.randint(0, int(time.time()))
         }
         
-        return time
+        return unixtime
 
     def isoTime(self):
         hour = str(random.randint(0, 23))
@@ -60,15 +60,19 @@ class dateTimeGenerator():
             "month": month,
             "day": day
         }
+
         return date
 
     def isoDateTime(self):
-        date = {
-            "total": f"{self.isoDate()} {self.isoTime()}",
-            "total": self.isoDate(),
-            "total": self.isoTime()
+        date = self.isoDate()
+        time = self.isoTime()
+
+        datetime = {
+            "total": f"{date['total']} {time['total']}",
+            "date": date,
+            "time": time
         }
 
-        return date
+        return datetime
 
         
