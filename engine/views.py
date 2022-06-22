@@ -1,5 +1,4 @@
 from django.http import HttpResponse, JsonResponse
-from engine.serialize import Serialize
 from engine.addressGen import addressGenerator
 from engine.bookGen import bookGenerator
 from engine.creditCardGen import creditCardGenerator
@@ -9,8 +8,6 @@ from engine.placeGen import placeGenerator
 from engine.productGen import productGenerator
 from engine.textGen import textGenerator
 from engine.userGen import userGenerator
-
-s = Serialize()
 
 addressGen = addressGenerator()
 bookGen = bookGenerator()
