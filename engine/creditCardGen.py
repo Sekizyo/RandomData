@@ -27,7 +27,7 @@ class creditCardGenerator():
         return companies[random.randint(0, len(companies)-1)]
         
     def number(self):
-        return random.randint(1000000000000000, 9999999999999999)
+        return str(random.randint(1000000000000000, 9999999999999999))
         
     def expiration(self):
         year = str(random.randint(22, 99))

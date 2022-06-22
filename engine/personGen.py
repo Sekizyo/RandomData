@@ -45,7 +45,7 @@ class personGenerator():
             return "male"
         elif roll == 1:
             return "female"
-        elif roll == '2':
+        elif roll == 2:
             return "other"
 
     def nationality(self):
