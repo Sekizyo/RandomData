@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from engine.serialize import Serialize
 from engine.addressGen import addressGenerator
 from engine.bookGen import bookGenerator
@@ -23,7 +23,7 @@ textGen = textGenerator()
 userGen = userGenerator()
 
 def getResponse(response):
-    return s.response(response)
+    return JsonResponse(data=response, status=200, safe=False)
 
 def index(request):
     return HttpResponse("Please use one of endpoints like:\n /addresses")
