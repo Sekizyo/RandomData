@@ -1,11 +1,8 @@
 import random
 
-from engine.personGen import personGenerator
+from engine.utils import firstName, lastName
 
 class creditCardGenerator():
-    def __init__(self):
-        self.personGen = personGenerator()
-
     def getCreditCards(self, count=10):
         cards = []
         for _ in range(count):
@@ -40,7 +37,7 @@ class creditCardGenerator():
         return f"{month}/{year}"
     
     def ccv(self):
-        return str(random.radint(100, 999))
+        return str(random.randint(100, 999))
 
     def owner(self):
-        return f"{self.personGen.firstName()} {self.personGen.lastName()}"
+        return f"{firstName()} {lastName()}"

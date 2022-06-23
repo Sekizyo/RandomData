@@ -1,5 +1,5 @@
-# from engine.textGen import textGenerator
+from engine.personGen import personGenerator
 
-# datetime = textGenerator()
+gen = personGenerator()
 
-# print(datetime.getTexts())
+print(gen.getPerson())
