@@ -2,11 +2,13 @@ import random
 
 from engine.dateTimeGen import dateTimeGenerator
 from engine.addressGen import addressGenerator
+from engine.creditCardGen import creditCardGenerator
 
 class personGenerator():
     def __init__(self):
         self.dateTimeGen = dateTimeGenerator()
         self.addressGen = addressGenerator()
+        self.creditCardGen = creditCardGenerator()
 
     def getPersons(self, count=10):
         persons = []
@@ -26,7 +28,9 @@ class personGenerator():
             "email": self.email(),
             "address": self.address(),
             "website": self.website(),
-            "image": self.image()
+            "image": self.image(),
+            "credit_card": self.creditCardGen.getCreditCard(),
+            "bitcoin": self.bitcoin()
         }
 
         return person
@@ -76,3 +80,6 @@ class personGenerator():
 
     def image(self):
         return "http://placeimg.com/640/480/people"
+
+    def bitcoin(self):
+        return None #TODO add bitcion wallet

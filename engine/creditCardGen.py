@@ -17,6 +17,7 @@ class creditCardGenerator():
             "type": self.company(),
             "number": self.number(),
             "expiration": self.expiration(),
+            "ccv": self.ccv(),
             "owner": self.owner()
         }
         
@@ -37,6 +38,9 @@ class creditCardGenerator():
             month = '0' + month
 
         return f"{month}/{year}"
-        
+    
+    def ccv(self):
+        return str(random.radint(100, 999))
+
     def owner(self):
         return f"{self.personGen.firstName()} {self.personGen.lastName()}"
