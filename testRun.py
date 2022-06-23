@@ -1,5 +1,5 @@
-from engine.textGen import textGenerator
+# from engine.textGen import textGenerator
 
-datetime = textGenerator()
+# datetime = textGenerator()
 
-print(datetime.getTexts())
+# print(datetime.getTexts())
