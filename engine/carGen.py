@@ -11,6 +11,7 @@ class carGenerator():
         car = {
             "licence_plate": self.licence_plate(),
             "registration_nr": self.registration_nr(),
+            "engine": self.engine(),
             "type": self.type_(),
             "company": self.company(),
             "vin": self.vin()
@@ -29,19 +30,36 @@ class carGenerator():
 
         return f"{code} {nr}"
     
-    def engine(self):
-        return random.randfloat() #TODO check syntax
 
     def registration_nr(self):
         return
 
+    def engine(self):
+        types = ["V6"]
+        # return random.randfloat() #TODO check syntax
+        return
+
     def type_(self):
         types = ["Avansis", "Passat"]
-        return types[random.randint(0, len(copmanies)-1)]
+        return types[random.randint(0, len(types)-1)]
 
     def company(self):
         companies = ["Tesla", "Volvo", "Toyota", "Mercedes", "Alpha Romeo", "Audi", "Fiat"]
         return companies[random.randint(0, len(companies)-1)]
 
     def vin(self):
+        vin = ""
+        chars = "ABCDEFGHIMNOPXZ"
+        charsNumbers= "123456789ABCDEFGHIJKMNOPWZX"
+        vin += str(random.randint(1, 9))
+        for _ in range(2):
+            vin += random.choice(chars)
+        
+        for _ in range(5):
+            vin += random.choice(charsNumbers)
+        
+        for _ in range(3):
+            vin += random.choice(chars)
+
+        vin += str(random.randint(100000, 999999))
         return
