@@ -3,12 +3,14 @@ import random
 from engine.dateTimeGen import dateTimeGenerator
 from engine.addressGen import addressGenerator
 from engine.creditCardGen import creditCardGenerator
+from engine.carGen import carGenerator
 
 class personGenerator():
     def __init__(self):
         self.dateTimeGen = dateTimeGenerator()
         self.addressGen = addressGenerator()
         self.creditCardGen = creditCardGenerator()
+        self.carGen = carGenerator()
 
     def getPersons(self, count=10):
         persons = []
@@ -30,7 +32,8 @@ class personGenerator():
             "website": self.website(),
             "image": self.image(),
             "credit_card": self.creditCardGen.getCreditCard(),
-            "bitcoin": self.bitcoin()
+            "bitcoin": self.bitcoin(),
+            "car": self.carGen.getCar()
         }
 
         return person
@@ -81,5 +84,14 @@ class personGenerator():
     def image(self):
         return "http://placeimg.com/640/480/people"
 
-    def bitcoin(self):
-        return None #TODO add bitcion wallet
+    def bitcoin(self): #TODO check syntax
+        wallet = ""
+        chars = "123456789ABCDEFGHIMNOPXZabcdefghijklmnoptqwzx"
+        wallet += str(random.randint(1, 3))
+        lenght = random.randint(26, 35)
+
+        for _ in range(lenght):
+            wallet += random.choice(chars)
+
+        return wallet
+

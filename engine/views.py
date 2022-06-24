@@ -1,6 +1,7 @@
 from django.http import HttpResponse, JsonResponse
 from engine.addressGen import addressGenerator
 from engine.bookGen import bookGenerator
+from engine.carGen import carGenerator
 from engine.creditCardGen import creditCardGenerator
 from engine.dateTimeGen import dateTimeGenerator
 from engine.personGen import personGenerator
@@ -11,6 +12,7 @@ from engine.userGen import userGenerator
 
 addressGen = addressGenerator()
 bookGen = bookGenerator()
+carGen = carGenerator()
 creditCardGen = creditCardGenerator()
 dateTimeGen = dateTimeGenerator()
 personGen = personGenerator()
@@ -30,6 +32,9 @@ def addresses(request):
 
 def books(request):
     return getResponse(bookGen.getBooks())
+
+def cars(request):
+    return getResponse(carGen.getCars())
 
 def creditCards(request):
     return getResponse(creditCardGen.getCreditCards())

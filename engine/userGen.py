@@ -20,6 +20,7 @@ class userGenerator():
             "lastname": self.lastName(),
             "username": self.username(),
             "password": self.password(),
+            "md5_password": self.md5_password(),
             "email": self.email(),
             "ip": self.ip(),
             "macAddress": self.macAddress(),
@@ -65,6 +66,9 @@ class userGenerator():
         
     def password(self):
         return f"{self.firstName()}.{self.lastName()}{random.randint(0, 1000)}"
+
+    def md5_password(self):
+        return self.password()# TODO add md5
         
     def email(self):
         return f"{self.firstName()}.{self.lastName()}@gmail.com"
