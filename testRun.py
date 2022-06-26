@@ -1,5 +1,5 @@
-from engine.creditCardGen import creditCardGenerator
+from engine.userGen import userGenerator
 
-books = creditCardGenerator()
+gen = userGenerator()
 
-print(books.getCreditCard())
+print(gen.getUser())

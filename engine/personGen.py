@@ -100,7 +100,7 @@ class personGenerator():
     def website(self, firstName, lastName):
         return f"http://{firstName}.{lastName}.com"
 
-    def image(self, gender):
+    def image(self, gender="other"):
         imageNr = random.randint(1, 99)
         if gender == "other":
             gender = random.choice(["male", "female"])

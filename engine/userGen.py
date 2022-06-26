@@ -2,10 +2,12 @@ import random
 import hashlib
 
 from engine.personGen import personGenerator
+from engine.dateTimeGen import dateTimeGenerator
 
 class userGenerator():
     def __init__(self):
         self.personGen = personGenerator()
+        self.dateTimeGen = dateTimeGenerator()
 
     def getUsers(self, count=1):
         users = []
@@ -15,17 +17,20 @@ class userGenerator():
         return users
 
     def getUser(self):
+        firstName = self.firstName()
+        lastName = self.lastName()
+
         user = {
             "uuid": self.uuid(),
-            "firstname": self.firstName(),
-            "lastname": self.lastName(),
+            "firstname": firstName,
+            "lastname": lastName,
             "username": self.username(),
             "password": self.password(),
             "md5_password": self.md5_password(),
             "email": self.email(),
             "ip": self.ip(),
             "macAddress": self.macAddress(),
-            "website": self.website(),
+            "website": self.website(firstName, lastName),
             "image": self.image(),
             "registered": self.dateTimeGen.isoDateTime()
         }
@@ -53,7 +58,6 @@ class userGenerator():
 
         for _ in range(12):
             uuid += random.choice(chars)
-        uuid += random.choice("-")
 
         return uuid
         
@@ -87,8 +91,8 @@ class userGenerator():
             address += ":"
         return address
         
-    def website(self):
-        return self.personGen.website()
+    def website(self, firstName, lastName):
+        return self.personGen.website(firstName, lastName)
 
     def image(self):
         return self.personGen.image()
