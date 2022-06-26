@@ -22,37 +22,37 @@ textGen = textGenerator()
 userGen = userGenerator()
 
 def getResponse(response):
-    return JsonResponse(data=response, status=200, safe=False)
+    return JsonResponse(data=response, status=200, safe=True)
 
 def index(request):
     return HttpResponse("Please use one of endpoints like:\n /addresses")
 
-def addresses(request):
+def address(request):
     return getResponse(addressGen.getAddress())
 
-def books(request):
+def book(request):
     return getResponse(bookGen.getBook())
 
-def cars(request):
+def car(request):
     return getResponse(carGen.getCar())
 
-def creditCards(request):
+def creditCard(request):
     return getResponse(creditCardGen.getCreditCard())
 
 def dateTime(request, arg):
     return getResponse(dateTimeGen.get(arg))
 
-def persons(request):
+def person(request):
     return getResponse(personGen.getPerson())
 
-def places(request):
+def place(request):
     return getResponse(placeGen.getPlace())
 
-def products(request):
+def product(request):
     return getResponse(productGen.getProduct())
 
-def texts(request):
+def text(request):
     return getResponse(textGen.getText())
 
-def users(request):
+def user(request):
     return getResponse(userGen.getUser())

@@ -12,14 +12,14 @@ import engine.views
 
 urlpatterns = [
     path("", engine.views.index, name="index"),
-    path("addresses/", engine.views.addresses, name="addresses"),
-    path("books/", engine.views.books, name="books"),
-    path("cars/", engine.views.cars, name="cars"),
-    path("creditcards/", engine.views.creditCards, name="creditCards"),
+    path("address/", engine.views.address, name="addresse"),
+    path("book/", engine.views.book, name="book"),
+    path("car/", engine.views.car, name="car"),
+    path("creditcard/", engine.views.creditCard, name="creditCard"),
     path("datetime/<str:arg>", engine.views.dateTime, name="dateTime"),
-    path("persons/", engine.views.persons, name="persons"),
-    path("places/", engine.views.places, name="places"),
-    path("products/", engine.views.products, name="products"),
-    path("texts/", engine.views.texts, name="texts"),
-    path("users/", engine.views.users, name="users")
+    path("person/", engine.views.person, name="person"),
+    path("place/", engine.views.place, name="place"),
+    path("product/", engine.views.product, name="product"),
+    path("text/", engine.views.text, name="text"),
+    path("user/", engine.views.user, name="user")
 ]
