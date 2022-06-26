@@ -7,10 +7,10 @@ class creditCardGenerator():
     def getCreditCards(self, count=10):
         cards = []
         for _ in range(count):
-            cards.append(self.getCreditCard())
+            cards.append(self.getCreditCard(f"{firstName()} {lastName()}"))
         return cards
 
-    def getCreditCard(self, owner=f"{firstName()} {lastName()}"):
+    def getCreditCard(self, owner):
         card = {
             "type": self.company(),
             "number": self.number(),
