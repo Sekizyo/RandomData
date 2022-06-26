@@ -13,10 +13,12 @@ class addressGenerator():
             "country": self.country(),
             "countryCode": self.countryCode(),
             "city": self.city(),
-            "zipcode": self.zipCode(),
+            "postcode": self.zipCode(),
             "buildingnumber": self.buildingNumber(),
+            "coordinates": {
             "latitude": self.latitude(),
             "longitude": self.longitude()
+            }
         }
         
         return address

@@ -24,20 +24,28 @@ class personGenerator():
         lastName = self.lastName()
 
         person = {
-            "title": self.title(gender),
-            "firstname": firstName,
-            "lastname": lastName,
+            "name": {
+                "title": self.title(gender),
+                "firstname": firstName,
+                "lastname": lastName
+            },
             "gender": gender,
             "nationality": self.nationality(),
-            "age": self.age(),
-            "birhtday": self.birthday(),
-            "phone": self.phoneNr(),
-            "email": self.email(firstName, lastName),
+            "date of birth": {
+                "age": self.age(),
+                "birthday": self.birthday(),
+            },
+            "contact": {
+                "phone": self.phoneNr(),
+                "email": self.email(firstName, lastName)
+            },
             "address": self.address(),
             "website": self.website(firstName, lastName),
             "image": self.image(gender),
-            "credit_card": self.creditCard(firstName, lastName),
-            "bitcoin": self.bitcoin(),
+            "payment": {
+                "credit_card": self.creditCard(firstName, lastName),
+                "bitcoin": self.bitcoin()
+            },
             "car": self.carGen.getCar()
         }
 
@@ -52,7 +60,7 @@ class personGenerator():
             return "Mx"
 
     def firstName(self, gender):
-        males = []
+        males = []#TODO
         females = []
         other = []
 
@@ -64,7 +72,7 @@ class personGenerator():
         return lastNames[random.randint(0, len(lastNames)-1)]
 
     def gender(self):
-        return random.choice("male", "female", "other")
+        return random.choice(["male", "female", "other"])
 
     def nationality(self):
         nationalities = ["African", "Asian", "European", "Central American", "Middle Eastern", "North African", "South American", "Southeast Asian"]
@@ -95,17 +103,17 @@ class personGenerator():
     def image(self, gender):
         imageNr = random.randint(1, 99)
         if gender == "other":
-            gender = random.choice("male", "female")
+            gender = random.choice(["male", "female"])
         return {"large":f"https://randomuser.me/api/portraits/{gender}/{imageNr}.jpg", "medium": f"https://randomuser.me/api/portraits/med/{gender}/{imageNr}.jpg", "thumbnail": f"https://randomuser.me/api/portraits/thumb/{gender}/{imageNr}.jpg"}
 
     def creditCard(self, firstName, lastName):
         return self.creditCardGen.getCreditCard(f"{firstName} {lastName}")
 
-    def bitcoin(self): #TODO check syntax
+    def bitcoin(self):
         wallet = ""
-        chars = "123456789ABCDEFGHIMNOPXZabcdefghijklmnoptqwzx"
+        chars = "123456789acdefghjklmnprstwxz"
         wallet += str(random.randint(1, 3))
-        lenght = random.randint(26, 35)
+        lenght = random.randint(26, 34)
 
         for _ in range(lenght):
             wallet += random.choice(chars)
