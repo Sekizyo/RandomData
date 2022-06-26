@@ -1,5 +1,5 @@
-from engine.personGen import personGenerator
+from engine.bookGen import bookGenerator
 
-gen = personGenerator()
+books = bookGenerator()
 
-print(gen.getPerson())
+print(books.getBook())

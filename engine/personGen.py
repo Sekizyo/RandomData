@@ -59,7 +59,7 @@ class personGenerator():
         else:
             return "Mx"
 
-    def firstName(self, gender):
+    def firstName(self, gender="male"):
         males = []#TODO
         females = []
         other = []
