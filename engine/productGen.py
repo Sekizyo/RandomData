@@ -1,7 +1,7 @@
 import random
 
 class productGenerator():
-    def getProducts(self, count=10):
+    def getProducts(self, count=1):
         products = []
         for _ in range(count):
             products.append(self.getProduct())

@@ -28,31 +28,31 @@ def index(request):
     return HttpResponse("Please use one of endpoints like:\n /addresses")
 
 def addresses(request):
-    return getResponse(addressGen.getAddresses())
+    return getResponse(addressGen.getAddress())
 
 def books(request):
-    return getResponse(bookGen.getBooks())
+    return getResponse(bookGen.getBook())
 
 def cars(request):
-    return getResponse(carGen.getCars())
+    return getResponse(carGen.getCar())
 
 def creditCards(request):
-    return getResponse(creditCardGen.getCreditCards())
+    return getResponse(creditCardGen.getCreditCard())
 
 def dateTime(request, arg):
     return getResponse(dateTimeGen.get(arg))
 
 def persons(request):
-    return getResponse(personGen.getPersons())
+    return getResponse(personGen.getPerson())
 
 def places(request):
-    return getResponse(placeGen.getPlaces())
+    return getResponse(placeGen.getPlace())
 
 def products(request):
-    return getResponse(productGen.getProducts())
+    return getResponse(productGen.getProduct())
 
 def texts(request):
-    return getResponse(textGen.getTexts())
+    return getResponse(textGen.getText())
 
 def users(request):
-    return getResponse(userGen.getUsers())
+    return getResponse(userGen.getUser())

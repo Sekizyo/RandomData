@@ -7,7 +7,7 @@ class userGenerator():
     def __init__(self):
         self.personGen = personGenerator()
 
-    def getUsers(self, count=10):
+    def getUsers(self, count=1):
         users = []
         for _ in range(count):
             users.append(self.getUser())

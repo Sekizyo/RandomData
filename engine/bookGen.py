@@ -7,7 +7,7 @@ class bookGenerator():
         self.personGen = personGenerator()
         self.dateTimeGen = dateTimeGenerator()
 
-    def getBooks(self, count=10):
+    def getBooks(self, count=1):
         books = []
         for _ in range(count):
             books.append(self.getBook())

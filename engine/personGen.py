@@ -12,7 +12,7 @@ class personGenerator():
         self.creditCardGen = creditCardGenerator()
         self.carGen = carGenerator()
 
-    def getPersons(self, count=10):
+    def getPersons(self, count=1):
         persons = []
         for _ in range(count):
             persons.append(self.getPerson())

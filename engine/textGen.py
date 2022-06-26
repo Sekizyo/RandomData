@@ -6,7 +6,7 @@ class textGenerator():
     def __init__(self):
         self.personGen = personGenerator()
 
-    def getTexts(self, count=10):
+    def getTexts(self, count=1):
         texts = []
         for _ in range(count):
             texts.append(self.getText())

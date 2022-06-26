@@ -5,7 +5,7 @@ class carGenerator():
     def __init__(self):
         self.dateTimeGen = dateTimeGenerator()
 
-    def getCars(self, count=10):
+    def getCars(self, count=1):
         cars = []
         for _ in range(count):
             cars.append(self.getCar())

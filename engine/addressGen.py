@@ -1,7 +1,7 @@
 import random
 
 class addressGenerator():
-    def getAddresses(self, count=10):
+    def getAddresses(self, count=1):
         addresses = []
         for _ in range(count):
             addresses.append(self.getAddress())

@@ -4,7 +4,7 @@ from engine.utils import firstName, lastName
 
 
 class creditCardGenerator():
-    def getCreditCards(self, count=10):
+    def getCreditCards(self, count=1):
         cards = []
         for _ in range(count):
             cards.append(self.getCreditCard(f"{firstName()} {lastName()}"))

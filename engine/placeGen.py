@@ -1,7 +1,7 @@
 import random 
 
 class placeGenerator():
-    def getPlaces(self, count=10):
+    def getPlaces(self, count=1):
         places = []
         for _ in range(count):
             places.append(self.getPlace())
