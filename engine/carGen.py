@@ -1,5 +1,10 @@
 import random
+
+from engine.dateTimeGen import dateTimeGenerator
 class carGenerator():
+    def __init__(self):
+        self.dateTimeGen = dateTimeGenerator()
+
     def getCars(self, count=10):
         cars = []
         for _ in range(count):
@@ -9,12 +14,20 @@ class carGenerator():
 
     def getCar(self):
         car = {
-            "licence_plate": self.licence_plate(),
-            "registration_nr": self.registration_nr(),
-            "engine": self.engine(),
-            "type": self.type_(),
-            "company": self.company(),
-            "vin": self.vin()
+            "model": {
+                "type": self.types(),
+                "makes": self.makes(),
+                "year": self.year(),
+                "engine": {
+                    "displacement": self.engineDisplacement(),
+                    "configuration": self.engineConfiguration() 
+                    }
+            },
+            "info":{
+                "licence_plate": self.licence_plate(),
+                "registration_nr": self.registration_nr(),
+                "vin": self.vin()
+            }
         }
 
         return car
@@ -34,18 +47,24 @@ class carGenerator():
     def registration_nr(self):
         return
 
-    def engine(self):
-        types = ["V6"]
-        # return random.randfloat() #TODO check syntax
-        return
-
-    def type_(self):
-        types = ["Avansis", "Passat"]
+    def engineDisplacement(self):
+        types = ["3.0 L", "3.6 L", "2.3 L", "6.2 L", "1.8 L", "1.9 L"]
         return types[random.randint(0, len(types)-1)]
 
-    def company(self):
-        companies = ["Tesla", "Volvo", "Toyota", "Mercedes", "Alpha Romeo", "Audi", "Fiat"]
+    def engineConfiguration(self):
+        types = ["Straight-six", "Straight-four", "V6", "V8", "V10"]
+        return types[random.randint(0, len(types)-1)]
+
+    def types(self):
+        types = ["SUV", "Sedan", "Coupe, Conv", "Pickup", "Van/Minivan", "Convertible", "Hatchback, ", "Hatchback", "Coupe", "Sedan"]
+        return types[random.randint(0, len(types)-1)]
+
+    def makes(self):
+        companies =["Audi", "Chevrolet", "Cadillac", "Acura", "BMW", "Chrysler", "Ford", "Buick", "INFINITI", "GMC", "Honda", "Hyundai", "Jeep", "Genesis", "Dodge", "Jaguar", "Kia", "Land Rover", "Lexus", "Mercedes-Be", "Mitsubishi", "Lincoln", "MAZDA", "Nissan", "MINI", "Porsche", "Ram", "Subaru", "Toyota", "Volkswagen", "Volvo", "Alfa Romeo", "FIAT", "Freightline", "Maserati", "Tesla", "Aston Marti", "Bentley", "Ferrari", "Lamborghini", "Lotus", "McLaren", "Rolls-Royce", "smart", "Scion", "SRT", "Suzuki", "Fisker", "Maybach", "Mercury", "Saab", "HUMMER", "Pontiac", "Saturn", "Isuzu", "Panoz", "Oldsmobile", "Daewoo", "Plymouth", "Eagle", "Geo", "Daihatsu"]
         return companies[random.randint(0, len(companies)-1)]
+    
+    def year(self):
+        return self.dateTimeGen.isoDate()["year"]
 
     def vin(self):
         vin = ""
