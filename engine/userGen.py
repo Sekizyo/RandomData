@@ -1,4 +1,5 @@
 import random
+import hashlib
 
 from engine.personGen import personGenerator
 
@@ -26,6 +27,7 @@ class userGenerator():
             "macAddress": self.macAddress(),
             "website": self.website(),
             "image": self.image(),
+            "registered": self.dateTimeGen.isoDateTime()
         }
         
         return user
@@ -68,7 +70,7 @@ class userGenerator():
         return f"{self.firstName()}.{self.lastName()}{random.randint(0, 1000)}"
 
     def md5_password(self):
-        return self.password()# TODO add md5
+        return hashlib.md5(self.password().encode('utf-8')).hexdigest()
         
     def email(self):
         return f"{self.firstName()}.{self.lastName()}@gmail.com"
@@ -78,10 +80,11 @@ class userGenerator():
 
     def macAddress(self):
         address = ""
+        chars = "123456789ABCDEF"
         for _ in range(6):
-            address += random.choice("123456789ABCDEF")
-            address += random.choice("123456789ABCDEF")
-            address += random.choice(":")
+            address += random.choice(chars)
+            address += random.choice(chars)
+            address += ":"
         return address
         
     def website(self):

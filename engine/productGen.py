@@ -34,10 +34,16 @@ class productGenerator():
         return template
         
     def ean(self):
-        return str(random.randint(1000000000000, 9999999999999))
+        ean = ''
+        for _ in range(13):
+            ean += str(random.randint(0,9))
+        return ean
 
     def upc(self):
-        return str(random.randint(100000000000, 999999999999))
+        upc = ''
+        for _ in range(11):
+            upc += str(random.randint(0, 9))
+        return upc
 
     def image(self):
         return "http://placeimg.com/640/480/tech"

@@ -16,8 +16,7 @@ class addressGenerator():
             "zipcode": self.zipCode(),
             "buildingnumber": self.buildingNumber(),
             "latitude": self.latitude(),
-            "longitude": self.longitude(),
-
+            "longitude": self.longitude()
         }
         
         return address
