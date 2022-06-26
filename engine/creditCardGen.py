@@ -10,7 +10,7 @@ class creditCardGenerator():
             cards.append(self.getCreditCard(f"{firstName()} {lastName()}"))
         return cards
 
-    def getCreditCard(self, owner):
+    def getCreditCard(self, owner=f"{firstName()} {lastName()}"):
         card = {
             "type": self.company(),
             "number": self.number(),
