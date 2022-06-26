@@ -19,26 +19,43 @@ class personGenerator():
         return persons
 
     def getPerson(self):
+        gender = self.gender()
+        firstName = self.firstName(gender)
+        lastName = self.lastName()
+
         person = {
-            "firstname": self.firstName(),
-            "lastname": self.lastName(),
-            "gender": self.gender(),
+            "title": self.title(gender),
+            "firstname": firstName,
+            "lastname": lastName,
+            "gender": gender,
             "nationality": self.nationality(),
             "age": self.age(),
             "birhtday": self.birthday(),
             "phone": self.phoneNr(),
-            "email": self.email(),
+            "email": self.email(firstName, lastName),
             "address": self.address(),
-            "website": self.website(),
-            "image": self.image(),
-            "credit_card": self.creditCardGen.getCreditCard(),
+            "website": self.website(firstName, lastName),
+            "image": self.image(gender),
+            "credit_card": self.creditCard(firstName, lastName),
             "bitcoin": self.bitcoin(),
             "car": self.carGen.getCar()
         }
 
         return person
 
-    def firstName(self):
+    def title(self, gender):
+        if gender == "male":
+            return "Mr"
+        elif gender == "female":
+            return "Mrs"
+        else:
+            return "Mx"
+
+    def firstName(self, gender):
+        males = []
+        females = []
+        other = []
+
         firstNames = ["Maria", "Nushi", "Mohammed", "Jose", "Wei", "Yan", "David", "John", "Ana", "Michael"]
         return firstNames[random.randint(0, len(firstNames)-1)]
 
@@ -47,13 +64,7 @@ class personGenerator():
         return lastNames[random.randint(0, len(lastNames)-1)]
 
     def gender(self):
-        roll = random.randint(0, 2)
-        if roll == 0:
-            return "male"
-        elif roll == 1:
-            return "female"
-        elif roll == 2:
-            return "other"
+        return random.choice("male", "female", "other")
 
     def nationality(self):
         nationalities = ["African", "Asian", "European", "Central American", "Middle Eastern", "North African", "South American", "Southeast Asian"]
@@ -72,17 +83,23 @@ class personGenerator():
             nr += str(random.randint(0, 9))
         return nr
 
-    def email(self):
-        return f"{self.firstName()}.{self.lastName()}@gmail.com"
+    def email(self, firstName, lastName):
+        return f"{firstName}.{lastName}@gmail.com"
 
     def address(self):
         return self.addressGen.getAddress()
 
-    def website(self):
-        return f"http://{self.firstName()}.{self.lastName()}.com"
+    def website(self, firstName, lastName):
+        return f"http://{firstName}.{lastName}.com"
 
-    def image(self):
-        return "http://placeimg.com/640/480/people"
+    def image(self, gender):
+        imageNr = random.randint(1, 99)
+        if gender == "other":
+            gender = random.choice("male", "female")
+        return {"large":f"https://randomuser.me/api/portraits/{gender}/{imageNr}.jpg", "medium": f"https://randomuser.me/api/portraits/med/{gender}/{imageNr}.jpg", "thumbnail": f"https://randomuser.me/api/portraits/thumb/{gender}/{imageNr}.jpg"}
+
+    def creditCard(self, firstName, lastName):
+        return self.creditCardGen.getCreditCard(f"{firstName} {lastName}")
 
     def bitcoin(self): #TODO check syntax
         wallet = ""

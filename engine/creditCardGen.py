@@ -1,7 +1,5 @@
 import random
 
-from engine.utils import firstName, lastName
-
 class creditCardGenerator():
     def getCreditCards(self, count=10):
         cards = []
@@ -9,13 +7,13 @@ class creditCardGenerator():
             cards.append(self.getCreditCard())
         return cards
 
-    def getCreditCard(self):
+    def getCreditCard(self, owner):
         card = {
             "type": self.company(),
             "number": self.number(),
             "expiration": self.expiration(),
             "ccv": self.ccv(),
-            "owner": self.owner()
+            "owner": owner
         }
         
         return card
@@ -38,6 +36,3 @@ class creditCardGenerator():
     
     def ccv(self):
         return str(random.randint(100, 999))
-
-    def owner(self):
-        return f"{firstName()} {lastName()}"
