@@ -15,6 +15,7 @@ urlpatterns = [
     path("address/", engine.views.address, name="addresse"),
     path("book/", engine.views.book, name="book"),
     path("car/", engine.views.car, name="car"),
+    path("container/", engine.views.container, name="container"),
     path("creditcard/", engine.views.creditCard, name="creditCard"),
     path("datetime/<str:arg>", engine.views.dateTime, name="dateTime"),
     path("person/", engine.views.person, name="person"),
