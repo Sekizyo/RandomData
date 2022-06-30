@@ -24,7 +24,7 @@ textGen = textGenerator()
 userGen = userGenerator()
 
 def getResponse(response):
-    return JsonResponse(data=response, status=200, safe=True)
+    return JsonResponse(data=response, status=200, safe=False)
 
 def index(request):
     return HttpResponse("Please use one of endpoints like:\n /addresses")
