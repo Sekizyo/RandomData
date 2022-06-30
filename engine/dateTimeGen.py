@@ -65,7 +65,7 @@ class dateTimeGenerator():
         return date
 
     def isoDateToday(self):
-        return str(datetime.now()-timedelta(minutes=random.randint(10, 60), seconds=random.randint(10, 60), milliseconds=random.randint(1, 10000)))
+        return str(datetime.now()-timedelta(hours=random.randint(0, 5), minutes=random.randint(10, 60), seconds=random.randint(10, 60), milliseconds=random.randint(1, 10000)))
 
     def isoDateTime(self):
         date = self.isoDate()

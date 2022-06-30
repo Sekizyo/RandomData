@@ -32,7 +32,7 @@ class creditCardGenerator():
         return self.sortTransactions(transactions)
 
     def sortTransactions(self, trns):
-        return trns.sort(key = lambda x:x["date"])
+        return sorted(trns, key=lambda d: d["date"])
 
     def getCCTransaction(self):
         transaction = {
