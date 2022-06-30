@@ -44,7 +44,7 @@ def car(request):
 def creditCard(request):
     return getResponse(creditCardGen.getCreditCard())
 
-def creditCardTransactions(request):
+def cctransactions(request):
     return getResponse(creditCardGen.getCCTransactions())
 
 def dateTime(request, arg):
