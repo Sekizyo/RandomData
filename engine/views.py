@@ -2,7 +2,7 @@ from django.http import HttpResponse, JsonResponse
 from engine.addressGen import addressGenerator
 from engine.bookGen import bookGenerator
 from engine.carGen import carGenerator
-from engine.containerGen import containerGenerator
+# from engine.containerGen import containerGenerator
 from engine.creditCardGen import creditCardGenerator
 from engine.dateTimeGen import dateTimeGenerator
 from engine.personGen import personGenerator
@@ -14,7 +14,7 @@ from engine.userGen import userGenerator
 addressGen = addressGenerator()
 bookGen = bookGenerator()
 carGen = carGenerator()
-containerGen = containerGenerator()
+# containerGen = containerGenerator()
 creditCardGen = creditCardGenerator()
 dateTimeGen = dateTimeGenerator()
 personGen = personGenerator()
@@ -23,41 +23,47 @@ productGen = productGenerator()
 textGen = textGenerator()
 userGen = userGenerator()
 
-def getResponse(response):
+def getJsonResponse(response):
     return JsonResponse(data=response, status=200, safe=True)
+
+def getResponse(response):
+    return JsonResponse(data=response, status=200, safe=False)
 
 def index(request):
     return HttpResponse("Please use one of endpoints like:\n /addresses")
 
 def address(request):
-    return getResponse(addressGen.getAddress())
+    return getJsonResponse(addressGen.getAddress())
 
 def book(request):
-    return getResponse(bookGen.getBook())
+    return getJsonResponse(bookGen.getBook())
 
 def car(request):
-    return getResponse(carGen.getCar())
+    return getJsonResponse(carGen.getCar())
 
-def container(request):
-    return getResponse(containerGen.getContainer())
+# def container(request):
+#     return getJsonResponse(containerGen.getContainer())
 
 def creditCard(request):
-    return getResponse(creditCardGen.getCreditCard())
+    return getJsonResponse(creditCardGen.getCreditCard())
+
+def cctransactions(request):
+    return getResponse(creditCardGen.getCCTransactions())
 
 def dateTime(request, arg):
-    return getResponse(dateTimeGen.get(arg))
+    return getJsonResponse(dateTimeGen.get(arg))
 
 def person(request):
-    return getResponse(personGen.getPerson())
+    return getJsonResponse(personGen.getPerson())
 
 def place(request):
-    return getResponse(placeGen.getPlace())
+    return getJsonResponse(placeGen.getPlace())
 
 def product(request):
-    return getResponse(productGen.getProduct())
+    return getJsonResponse(productGen.getProduct())
 
 def text(request):
-    return getResponse(textGen.getText())
+    return getJsonResponse(textGen.getText())
 
 def user(request):
-    return getResponse(userGen.getUser())
+    return getJsonResponse(userGen.getUser())
